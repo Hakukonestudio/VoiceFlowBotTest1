@@ -4,31 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chatbot</title>
-    <style>
-        #flat-chat {
-            width: 800px; 
-            height: 700px; 
-            position: fixed; 
-            top: 50%; 
-            left: 50%; 
-            transform: translate(-50%, -50%); 
-            padding: 20px; 
-            background: linear-gradient(135deg, #0072ff, #00c6ff); 
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
-            border-radius: 10px; 
-            display: flex; 
-            flex-direction: column; 
-            justify-content: center; 
-            align-items: center; 
-            z-index: 1000;
-        }
-    </style>
 </head>
 <body>
-    <div id="flat-chat">
-        <!-- Chatbot kuvatakse siin -->
+    <div id="chatbot" style="width: 100%; height: 600px;">
+        <!-- Chatbot UI laetakse siia -->
     </div>
 
-    <script type="module" src="chatbotInit.js"></script>
+    <script src="https://cdn.voiceflow.com/widget/bundle.mjs" type="module"></script>
+    <script type="module">
+        if (window.voiceflow) {
+            window.voiceflow.chat.load({
+                verify: { projectID: "Y65df350a33dfac9fbfad5426" },
+                url: "https://general-runtime.voiceflow.com",
+                versionID: "production",
+                render: {
+                    mode: 'embedded',
+                    target: document.getElementById('chatbot'),
+                },
+                autostart: false
+            });
+        } else {
+            document.addEventListener('vf-ready', () => {
+                window.voiceflow.chat.load({
+                    verify: { projectID: "Y65df350a33dfac9fbfad5426" },
+                    url: "https://general-runtime.voiceflow.com",
+                    versionID: "production",
+                    render: {
+                        mode: 'embedded',
+                        target: document.getElementById('chatbot'),
+                    },
+                    autostart: false
+                });
+            });
+        }
+    </script>
 </body>
 </html>
