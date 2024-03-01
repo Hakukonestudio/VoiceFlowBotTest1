@@ -1,0 +1,32 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .container {
+    display: flex;
+    width: calc(100% - 280px); /* Arvestame marginaalid laiusest maha */
+    height: calc(100vh - 280px); /* Arvestame marginaalid kõrgusest maha */
+    margin: 140px; /* Üldine marginaal konteinerile */
+  }
+  
+  .chatbot, .image {
+    flex: 1;
+    height: 100%;
+  }
+  
+  .chatbot {
+    background-color: #f0f0f0; /* Helehall taust chatbotile */
+    margin-right: 140px; /* Marginaal paremal, et eraldada chatbot pildist */
+  }
+  
+  .image {
+    background-image: url('images/image1.jpg'); /* Asenda oma pildi URLiga */
+    background-size: cover;
+    background-position: center;
+  }
