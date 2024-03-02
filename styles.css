@@ -42,3 +42,19 @@ body, html {
   background-color: #f0f0f0;
   /* Eemaldatud parempoolne marginaal */
 }
+
+@media (max-width: 768px) {
+  .banner {
+    height: 150px; /* Tehakse bänner kitsamaks mobiilivaates */
+  }
+
+  .container {
+    padding: 10px; /* Vähendatakse paddingut, et suurendada sisu ala */
+    flex-direction: column; /* Stäkkib elemendid vertikaalselt */
+  }
+
+  .chatbot {
+    width: 100%; /* Chatbot võtab kogu konteineri laiuse */
+    margin: 10px 0; /* Väiksemad marginaalid ülevalt ja alt */
+  }
+}
