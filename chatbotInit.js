@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function initializeChatbot() {
     window.voiceflow.chat.load({
-        verify: { projectID: "65def8ba4fbe837491d02592" }, // Asenda see oma Voiceflow projekti ID-ga
+        verify: { projectID: "65e80271905ec742d67e717d" }, // Asenda see oma Voiceflow projekti ID-ga
         url: "https://general-runtime.voiceflow.com",
         versionID: "production",
         render: {
@@ -27,3 +27,5 @@ function initializeChatbot() {
         autostart: false
     });
 }
+
+
