@@ -1,60 +1,127 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Gradient background animation */
+
+body {
+  position: relative; /* Needed for proper z-index stacking */
+  z-index: -1; /* Ensure body is above the background animation */
+  background: linear-gradient(45deg, #d4fcdc, #a6e4d7, #f4f9f9, #a6e4d7);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
+}
+
 @keyframes gradientAnimation {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
-body, html {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    min-height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: linear-gradient(45deg, #d4fcdc, #a6e4d7, #f4f9f9, #a6e4d7); /* Uuendatud gradient värvid */
-    background-size: 400% 400%;
-    animation: gradientAnimation 15s ease infinite;
-}
-
-/* Ülejäänud stiilid jäävad samaks */
-
+/* Banner section */
 
 .banner {
   width: 100%;
   height: 300px;
-  background-image: url('images/LinkedinBanner.jpg');
+  background-image: url('images/LinkedinBanner.jpg'); /* Assuming your banner image is here */
   background-size: cover;
   background-position: center;
 }
 
+/* Content container */
+
 .container {
   display: flex;
-  justify-content: center; /* Keskele joondamiseks */
+  justify-content: center; /* Center content horizontally */
   width: 100%;
-  min-height: calc(100vh - 300px); /* Arvestades bänneri kõrgust */
-  padding-top: 60px; /* Marginaal bänneri all */
+  min-height: calc(100vh - 300px); /* Account for banner height */
+  padding-top: 60px; /* Margin below the banner */
 }
 
+/* Chatbot element */
+
 .chatbot {
-  width: 60%; /* Chatbot'i laius on 60% lehe laiusest */
-  height: auto; /* Kõrgus sõltub sisust */
+  width: 60%; /* Chatbot width is 60% of container */
+  height: auto; /* Height depends on content */
   background-color: #f0f0f0;
-  /* Eemaldatud parempoolne marginaal */
 }
+
+/* Responsive adjustments for smaller screens */
 
 @media (max-width: 768px) {
   .banner {
-    height: 150px; /* Tehakse bänner kitsamaks mobiilivaates */
+    height: 150px; /* Adjust banner height for mobile */
   }
 
   .container {
-    padding: 10px; /* Vähendatakse paddingut, et suurendada sisu ala */
-    flex-direction: column; /* Stäkkib elemendid vertikaalselt */
+    padding: 10px; /* Reduce padding for more content space */
+    flex-direction: column; /* Stack elements vertically */
   }
 
   .chatbot {
-    width: 100%; /* Chatbot võtab kogu konteineri laiuse */
-    margin: 10px 0; /* Väiksemad marginaalid ülevalt ja alt */
+    width: 100%; /* Chatbot takes full container width */
+    margin: 10px 0; /* Smaller margins top and bottom */
+  }
+}
+
+/* Modern background animation with SVGs */
+
+.modern-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10; /* Ensure it's behind other content */
+}
+
+.modern-background::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.6; /* Adjust opacity as needed */
+  animation: animate-background 3s ease-in-out infinite;
+}
+
+@keyframes animate-background {
+  0% {
+    background-image: url("images/modern-background1.svg");
+  }
+
+  25% {
+    background-image: url("images/modern-background2.svg");
+  }
+
+  50% {
+    background-image: url("images/modern-background3.svg");
+  }
+
+  75% {
+    background-image: url("images/modern-background4.svg");
+  }
+
+  100% {
+    background-image: url("images/modern-background1.svg"); /* Assuming your final image is here */
   }
 }

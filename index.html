@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,12 +7,60 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="banner"></div> <!-- Bänner jääb samaks -->
-    <div class="container">
+    <div class="banner"></div> 
         <div class="chatbot" id="chatbot"></div>
-        <!-- Eemaldatud pildi konteiner -->
+       
     </div>
 
     <script type="module" src="chatbotInit.js"></script>
+</body>
+</html> --> 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Voiceglow HTML Sample</title>
+    <style>
+        body, html {
+            height: 100%; /* Annab täiskõrguse kogu lehele */
+            margin: 0; /* Eemaldab vaikimisi brauseri marginaalid */
+            display: flex; /* Rakendab Flexboxi */
+            justify-content: center; /* Tsentreerib sisu horisontaalselt */
+            align-items: center; /* Tsentreerib sisu vertikaalselt */
+        }
+        #VG_OVERLAY_CONTAINER {
+            width: 88vw; /* Laiuse seadmine */
+            height: 92vh; /* Kõrguse seadmine */
+            border: 1px solid #ccc; /* Lisab piiri visuaalseks kontrolliks, võib eemaldada või asendada */
+        }
+    </style>
+</head>
+<body>
+
+<div id="VG_OVERLAY_CONTAINER">
+    <!-- Here is where Voiceglow renders the widget. -->
+    <!-- Set render to 'full-width' then adjust the width and height to 500px (for example) to render the chatbot itself without the popup. -->
+</div>
+
+<script defer>
+    (function() {
+        window.VG_CONFIG = {
+            ID: "hCYBuruWNf",
+            region: 'eu', // 'eu' or 'na' corresponding to Europe and North America
+            render: 'full-width', // popup or full-width
+            stylesheets: [
+                // Base Voiceglow CSS
+                "https://storage.googleapis.com/voiceglow-cdn/vg_live_build/styles.css",
+                // Add your custom css stylesheets, Can also add relative URL ('/public/your-file.css)
+            ],
+        }
+        var VG_SCRIPT = document.createElement("script");
+        VG_SCRIPT.src = "https://storage.googleapis.com/voiceglow-cdn/vg_live_build/vg_bundle.js";
+        document.body.appendChild(VG_SCRIPT);
+    })()
+</script>
+
 </body>
 </html>
