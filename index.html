@@ -1,66 +1,81 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="fi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chatbot Page</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div class="banner"></div> 
-        <div class="chatbot" id="chatbot"></div>
-       
-    </div>
-
-    <script type="module" src="chatbotInit.js"></script>
-</body>
-</html> --> 
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Voiceglow HTML Sample</title>
+    <title>Voiceflow Chat</title>
     <style>
-        body, html {
-            height: 100%; /* Annab täiskõrguse kogu lehele */
-            margin: 0; /* Eemaldab vaikimisi brauseri marginaalid */
-            display: flex; /* Rakendab Flexboxi */
-            justify-content: center; /* Tsentreerib sisu horisontaalselt */
-            align-items: center; /* Tsentreerib sisu vertikaalselt */
+        #flat-chat {
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 9999;
+            border: none;
         }
-        #VG_OVERLAY_CONTAINER {
-            width: 88vw; /* Laiuse seadmine */
-            height: 92vh; /* Kõrguse seadmine */
-            border: 1px solid #ccc; /* Lisab piiri visuaalseks kontrolliks, võib eemaldada või asendada */
+
+        /* Mobiililaitteet */
+        @media (max-width: 767px) {
+            #flat-chat {
+                width: 100vw;
+            }
         }
+
+        /* Tabletit */
+        @media (min-width: 768px) and (max-width: 1023px) {
+            #flat-chat {
+                width: 96vw;
+            }
+        }
+
+        /* Laptopit */
+        @media (min-width: 1024px) and (max-width: 1199px) {
+            #flat-chat {
+                width: 88vw;
+            }
+        }
+
+        /* Desktopit */
+        @media (min-width: 1200px) {
+            #flat-chat {
+                width: 76vw;
+            }
+        }
+
     </style>
 </head>
 <body>
+    <div id="flat-chat"></div>
+    
+    <script type="text/javascript">
+      (function(d, t) {
+          var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+          v.onload = function() {
+            window.voiceflow.chat.load({
+              verify: { projectID: '6688ee266d80c8732bb4b2c5' },
+              url: 'https://general-runtime.voiceflow.com',
+              versionID: 'production',
+              assistant: {
+                    stylesheet: "https://ai-studio.artify.fi/PalautePaneeli/stylesheet.css"
+                },
 
-<div id="VG_OVERLAY_CONTAINER">
-    <!-- Here is where Voiceglow renders the widget. -->
-    <!-- Set render to 'full-width' then adjust the width and height to 500px (for example) to render the chatbot itself without the popup. -->
-</div>
-
-<script defer>
-    (function() {
-        window.VG_CONFIG = {
-            ID: "hCYBuruWNf",
-            region: 'eu', // 'eu' or 'na' corresponding to Europe and North America
-            render: 'full-width', // popup or full-width
-            stylesheets: [
-                // Base Voiceglow CSS
-                "https://storage.googleapis.com/voiceglow-cdn/vg_live_build/styles.css",
-                // Add your custom css stylesheets, Can also add relative URL ('/public/your-file.css)
-            ],
-        }
-        var VG_SCRIPT = document.createElement("script");
-        VG_SCRIPT.src = "https://storage.googleapis.com/voiceglow-cdn/vg_live_build/vg_bundle.js";
-        document.body.appendChild(VG_SCRIPT);
-    })()
-</script>
-
+                render: {
+                  mode: 'embedded',
+                  target: document.getElementById('flat-chat'),
+              },
+              autostart: true
+            });
+          }
+          v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; 
+          v.type = "text/javascript"; 
+          s.parentNode.insertBefore(v, s);
+      })(document, 'script');
+    </script>
 </body>
 </html>
+
+<!-- 
+assistant: {
+    stylesheet: "https://ai-studio.artify.fi/PalautePaneeli/stylesheet.css" 
+  }; -->
