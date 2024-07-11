@@ -4,46 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Voiceflow Chat</title>
-    <style>
-        #flat-chat {
-            height: 100vh;
-            position: fixed;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 9999;
-            border: none;
-        }
-
-        /* Mobiililaitteet */
-        @media (max-width: 767px) {
-            #flat-chat {
-                width: 100vw;
-            }
-        }
-
-        /* Tabletit */
-        @media (min-width: 768px) and (max-width: 1023px) {
-            #flat-chat {
-                width: 96vw;
-            }
-        }
-
-        /* Laptopit */
-        @media (min-width: 1024px) and (max-width: 1199px) {
-            #flat-chat {
-                width: 88vw;
-            }
-        }
-
-        /* Desktopit */
-        @media (min-width: 1200px) {
-            #flat-chat {
-                width: 76vw;
-            }
-        }
-
-    </style>
+    <link rel="stylesheet" href="styles.css">
+   
 </head>
 <body>
     <div id="flat-chat"></div>
@@ -56,10 +18,10 @@
               verify: { projectID: '668e1d2d6597200672e9d2eb' },
               url: 'https://general-runtime.voiceflow.com',
               versionID: 'production',
-              assistant: {
+            /*   assistant: {
                     stylesheet: "https://ai-studio.artify.fi/PalautePaneeli/stylesheet.css"
                 },
-
+ */
                 render: {
                   mode: 'embedded',
                   target: document.getElementById('flat-chat'),
